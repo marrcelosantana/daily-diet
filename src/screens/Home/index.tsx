@@ -1,9 +1,12 @@
-import { HomeContainer, Title } from "./styles";
+import { Header } from "@components/Header";
+import { PercentCard } from "@components/PercentCard";
+import { HomeContainer } from "./styles";
 
 export default function Home() {
   return (
     <HomeContainer>
-      <Title>Hello World</Title>
+      <Header />
+      <PercentCard />
     </HomeContainer>
   );
 }
