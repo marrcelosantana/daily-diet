@@ -1,6 +1,6 @@
 export default {
   COLORS: {
-    white: "#FFFFFF",
+    WHITE: "#FFFFFF",
 
     GREEN_LIGHT: "#E5F0DB",
     GREEN_MID: "#CBE4B4",
@@ -20,8 +20,8 @@ export default {
   },
 
   FONT_FAMILY: {
-    REGULAR: "Roboto_400Regular",
-    BOLD: "Roboto_700Bold",
+    REGULAR: "NunitoSans_400Regular",
+    BOLD: "NunitoSans_700Bold",
   },
 
   FONT_SIZE: {
