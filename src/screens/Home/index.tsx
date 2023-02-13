@@ -13,6 +13,10 @@ export default function Home() {
     navigation.navigate("statistics");
   }
 
+  function handleRegisterMeal() {
+    navigation.navigate("register");
+  }
+
   return (
     <HomeContainer>
       <Header />
@@ -20,7 +24,12 @@ export default function Home() {
 
       <HomeContent>
         <HomeTitle>Refeições</HomeTitle>
-        <Button type="dark" title="Nova refeição" icon="add" />
+        <Button
+          type="dark"
+          title="Nova refeição"
+          icon="add"
+          onPress={handleRegisterMeal}
+        />
       </HomeContent>
     </HomeContainer>
   );

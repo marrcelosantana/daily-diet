@@ -9,12 +9,13 @@ type Props = {
 };
 
 export const StatisticsContainer = styled(SafeAreaView)<Props>`
+  width: 100%;
+  height: 100%;
   ${({ theme, type }) => css`
     background-color: ${type === "success"
       ? theme.COLORS.GREEN_LIGHT
       : theme.COLORS.RED_LIGHT};
   `}
-  flex: 1;
 `;
 
 export const StatisticsHeader = styled.View`
@@ -40,8 +41,9 @@ export const StatisticsHeaderSubtitle = styled.Text`
 `;
 
 export const StatisticsContent = styled.View`
+  width: 100%;
+  height: 100%;
   background-color: white;
-  flex: 1;
   border-radius: 20px;
   align-items: center;
   padding: 24px;
