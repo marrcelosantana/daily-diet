@@ -18,7 +18,7 @@ import {
   HeaderTitle,
 } from "./styles";
 
-export function Register() {
+export function Update() {
   const [isActiveYes, setIsActiveYes] = useState(true);
   const [isActiveNo, setIsActiveNo] = useState(false);
 
@@ -33,7 +33,7 @@ export function Register() {
     setIsActiveNo(!isActiveNo);
   }
 
-  function handleRegister() {
+  function handleUpdate() {
     navigation.navigate("feedback");
   }
 
@@ -79,11 +79,7 @@ export function Register() {
           />
         </ButtonsDietContainer>
 
-        <Button
-          type="dark"
-          title="Cadastrar refeição"
-          onPress={handleRegister}
-        />
+        <Button type="dark" title="Cadastrar refeição" onPress={handleUpdate} />
       </Form>
     </Container>
   );

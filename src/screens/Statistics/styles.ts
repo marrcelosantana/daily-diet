@@ -94,6 +94,7 @@ export const CardSubtitle = styled.Text`
     font-size: ${theme.FONT_SIZE.SM_14}px;
     font-family: ${theme.FONT_FAMILY.REGULAR};
   `}
+  text-align: center;
 `;
 
 export const FooterCardsContainer = styled.View`

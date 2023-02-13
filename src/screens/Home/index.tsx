@@ -6,7 +6,7 @@ import { PercentCard } from "@components/PercentCard";
 
 import { Container, Content, Title } from "./styles";
 
-export default function Home() {
+export function Home() {
   const navigation = useNavigation();
 
   function handleOpenStatistics() {
