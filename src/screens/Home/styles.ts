@@ -1,9 +1,11 @@
 import styled, { css } from "styled-components/native";
 
-export const HomeContainer = styled.SafeAreaView`
+import { SafeAreaView } from "react-native-safe-area-context";
+
+export const HomeContainer = styled(SafeAreaView)`
   flex: 1;
   align-items: center;
-  padding: 48px 24px;
+  padding: 24px;
 `;
 
 export const HomeContent = styled.View`

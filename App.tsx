@@ -1,8 +1,9 @@
 import { StatusBar } from "react-native";
 import { ThemeProvider } from "styled-components";
 
-import Home from "@screens/Home";
 import { Loading } from "@components/Loading";
+
+import { Routes } from "@routes/index";
 
 import theme from "@theme/index";
 import {
@@ -21,7 +22,7 @@ export default function App() {
         backgroundColor="transparent"
         translucent
       />
-      {fontsLoaded ? <Home /> : <Loading />}
+      {fontsLoaded ? <Routes /> : <Loading />}
     </ThemeProvider>
   );
 }
