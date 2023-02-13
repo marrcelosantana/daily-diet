@@ -10,15 +10,20 @@ import {
 
 type PercentCardProps = TouchableProps & {
   type?: PercentCardStyleProps;
+  percent: string;
 };
 
-export function PercentCard({ type = "success", ...rest }: PercentCardProps) {
+export function PercentCard({
+  type = "success",
+  percent,
+  ...rest
+}: PercentCardProps) {
   return (
     <PercentCardContainer type={type} {...rest}>
       <PercentCardHeader>
         <ArrowUpRightIcon type={type} name="arrow-up-right" />
       </PercentCardHeader>
-      <PercentCardTitle>90,86%</PercentCardTitle>
+      <PercentCardTitle>{percent}%</PercentCardTitle>
       <PercentCardSubTitle>das refeições dentro da dieta</PercentCardSubTitle>
     </PercentCardContainer>
   );
