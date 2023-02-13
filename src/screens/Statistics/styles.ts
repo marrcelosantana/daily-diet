@@ -102,7 +102,7 @@ export const FooterCardsContainer = styled.View`
 `;
 
 export const SuccessCard = styled.View`
-  width: 49%;
+  width: 48%;
   background-color: ${({ theme }) => theme.COLORS.GREEN_LIGHT};
   height: 89px;
   padding: 16px;
@@ -112,12 +112,12 @@ export const SuccessCard = styled.View`
 `;
 
 export const DangerCard = styled.View`
-  width: 49%;
+  width: 48%;
   background-color: ${({ theme }) => theme.COLORS.RED_LIGHT};
   height: 89px;
   padding: 16px;
   border-radius: 8px;
   align-items: center;
   justify-content: center;
-  margin-left: 2%;
+  margin-left: 4%;
 `;

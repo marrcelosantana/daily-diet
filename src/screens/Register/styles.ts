@@ -41,6 +41,17 @@ export const MiniInputsContainer = styled.View`
   justify-content: space-between;
 `;
 
+export const ButtonsDietTitle = styled.Text`
+  ${({ theme }) => css`
+    font-family: ${theme.FONT_FAMILY.BOLD};
+    font-size: ${theme.FONT_SIZE.SM_14}px;
+    color: ${theme.COLORS.GRAY_200};
+  `}
+  margin-top: 16px;
+`;
+
+export const ButtonsDietContainer = styled.View``;
+
 export const ArrowLeftIcon = styled(Feather).attrs(({ theme }) => ({
   size: 24,
   color: theme.COLORS.GRAY_100,

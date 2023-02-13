@@ -1,4 +1,4 @@
-import { Text, TouchableOpacity, TextInputProps } from "react-native";
+import { Text, TouchableOpacity } from "react-native";
 
 import { useNavigation } from "@react-navigation/native";
 
@@ -6,14 +6,16 @@ import { Input } from "@components/Input";
 
 import {
   ArrowLeftIcon,
+  ButtonsDietTitle,
   MiniInputsContainer,
+  ButtonsDietContainer,
   RegisterContainer,
   RegisterForm,
   RegisterHeader,
   RegisterHeaderTitle,
 } from "./styles";
 
-export function Register({ ...rest }: TextInputProps) {
+export function Register() {
   const navigation = useNavigation();
 
   function handleGoBack() {
@@ -28,7 +30,7 @@ export function Register({ ...rest }: TextInputProps) {
         </TouchableOpacity>
 
         <RegisterHeaderTitle>Nova refeição</RegisterHeaderTitle>
-        <Text></Text>
+        <Text />
       </RegisterHeader>
 
       <RegisterForm>
@@ -44,6 +46,10 @@ export function Register({ ...rest }: TextInputProps) {
           <Input title="Data" style={{ width: 160 }} />
           <Input title="Horário" style={{ width: 160 }} />
         </MiniInputsContainer>
+
+        <ButtonsDietTitle>Está dentro da dieta?</ButtonsDietTitle>
+
+        <ButtonsDietContainer></ButtonsDietContainer>
       </RegisterForm>
     </RegisterContainer>
   );
