@@ -2,13 +2,13 @@ import styled, { css } from "styled-components/native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Feather } from "@expo/vector-icons";
 
-export const RegisterContainer = styled(SafeAreaView)`
+export const Container = styled(SafeAreaView)`
   align-items: center;
   background-color: ${({ theme }) => theme.COLORS.GRAY_500};
   height: 100%;
 `;
 
-export const RegisterHeader = styled.View`
+export const Header = styled.View`
   width: 100%;
   height: 90px;
   align-items: center;
@@ -17,7 +17,7 @@ export const RegisterHeader = styled.View`
   flex-direction: row;
 `;
 
-export const RegisterHeaderTitle = styled.Text`
+export const HeaderTitle = styled.Text`
   ${({ theme }) => css`
     color: ${theme.COLORS.GRAY_100};
     font-size: ${theme.FONT_SIZE.LG_18}px;
@@ -26,7 +26,7 @@ export const RegisterHeaderTitle = styled.Text`
   margin-right: 20px;
 `;
 
-export const RegisterForm = styled.View`
+export const Form = styled.View`
   width: 100%;
   height: 100%;
   background-color: ${({ theme }) => theme.COLORS.WHITE};
@@ -50,7 +50,14 @@ export const ButtonsDietTitle = styled.Text`
   margin-top: 16px;
 `;
 
-export const ButtonsDietContainer = styled.View``;
+export const ButtonsDietContainer = styled.View`
+  width: 100%;
+  flex-direction: row;
+  margin-top: 16px;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 76px;
+`;
 
 export const ArrowLeftIcon = styled(Feather).attrs(({ theme }) => ({
   size: 24,

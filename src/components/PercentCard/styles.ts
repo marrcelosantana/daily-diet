@@ -8,7 +8,7 @@ type Props = {
   type: PercentCardStyleProps;
 };
 
-export const PercentCardContainer = styled.TouchableOpacity<Props>`
+export const Container = styled.TouchableOpacity<Props>`
   width: 100%;
   align-items: center;
   justify-content: center;
@@ -22,11 +22,11 @@ export const PercentCardContainer = styled.TouchableOpacity<Props>`
   `}
 `;
 
-export const PercentCardHeader = styled.View`
+export const Header = styled.View`
   margin-left: auto;
 `;
 
-export const PercentCardTitle = styled.Text`
+export const Title = styled.Text`
   ${({ theme }) => css`
     font-size: ${theme.FONT_SIZE.XXL_32}px;
     font-family: ${theme.FONT_FAMILY.BOLD};
@@ -35,7 +35,7 @@ export const PercentCardTitle = styled.Text`
   `}
 `;
 
-export const PercentCardSubTitle = styled.Text`
+export const SubTitle = styled.Text`
   ${({ theme }) => css`
     font-size: ${theme.FONT_SIZE.MD_16}px;
     font-family: ${theme.FONT_FAMILY.REGULAR};

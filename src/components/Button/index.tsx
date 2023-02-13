@@ -1,8 +1,8 @@
 import { TouchableOpacityProps } from "react-native";
 import { MaterialIcons, MaterialCommunityIcons } from "@expo/vector-icons";
 import {
-  ButtonContainer,
-  ButtonTitle,
+  Container,
+  Title,
   ButtonTypeStyleProps,
   Icon,
   IconCommunity,
@@ -24,10 +24,10 @@ export function Button({
   ...rest
 }: ButtonProps) {
   return (
-    <ButtonContainer type={type} {...rest}>
+    <Container type={type} {...rest}>
       {icon && <Icon type={type} name={icon} />}
       {iconCommunity && <IconCommunity type={type} name={iconCommunity} />}
-      <ButtonTitle type={type}>{title}</ButtonTitle>
-    </ButtonContainer>
+      <Title type={type}>{title}</Title>
+    </Container>
   );
 }

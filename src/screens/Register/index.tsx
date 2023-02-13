@@ -1,39 +1,50 @@
+import { useState } from "react";
 import { Text, TouchableOpacity } from "react-native";
 
 import { useNavigation } from "@react-navigation/native";
 
 import { Input } from "@components/Input";
+import { ButtonDiet } from "@components/ButtonDiet";
+import { Button } from "@components/Button";
 
 import {
   ArrowLeftIcon,
   ButtonsDietTitle,
   MiniInputsContainer,
   ButtonsDietContainer,
-  RegisterContainer,
-  RegisterForm,
-  RegisterHeader,
-  RegisterHeaderTitle,
+  Container,
+  Form,
+  Header,
+  HeaderTitle,
 } from "./styles";
 
 export function Register() {
+  const [isActiveYes, setIsActiveYes] = useState(true);
+  const [isActiveNo, setIsActiveNo] = useState(false);
+
   const navigation = useNavigation();
 
   function handleGoBack() {
     navigation.navigate("home");
   }
 
+  function handleChoice() {
+    setIsActiveYes(!isActiveYes);
+    setIsActiveNo(!isActiveNo);
+  }
+
   return (
-    <RegisterContainer>
-      <RegisterHeader>
+    <Container>
+      <Header>
         <TouchableOpacity onPress={handleGoBack}>
           <ArrowLeftIcon name="arrow-left" />
         </TouchableOpacity>
 
-        <RegisterHeaderTitle>Nova refeição</RegisterHeaderTitle>
+        <HeaderTitle>Nova refeição</HeaderTitle>
         <Text />
-      </RegisterHeader>
+      </Header>
 
-      <RegisterForm>
+      <Form>
         <Input title="Nome" maxLength={40} />
         <Input
           title="Descrição"
@@ -49,8 +60,23 @@ export function Register() {
 
         <ButtonsDietTitle>Está dentro da dieta?</ButtonsDietTitle>
 
-        <ButtonsDietContainer></ButtonsDietContainer>
-      </RegisterForm>
-    </RegisterContainer>
+        <ButtonsDietContainer>
+          <ButtonDiet
+            title="Sim"
+            type="success"
+            isActive={isActiveYes}
+            onPress={handleChoice}
+          />
+          <ButtonDiet
+            title="Não"
+            type="danger"
+            isActive={isActiveNo}
+            onPress={handleChoice}
+          />
+        </ButtonsDietContainer>
+
+        <Button type="dark" title="Cadastrar refeição" />
+      </Form>
+    </Container>
   );
 }

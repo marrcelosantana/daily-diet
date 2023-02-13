@@ -1,11 +1,11 @@
 import { TouchableProps } from "react-native-svg";
 import {
   ArrowUpRightIcon,
-  PercentCardContainer,
-  PercentCardHeader,
+  Container,
+  Header,
   PercentCardStyleProps,
-  PercentCardSubTitle,
-  PercentCardTitle,
+  SubTitle,
+  Title,
 } from "./styles";
 
 type PercentCardProps = TouchableProps & {
@@ -19,12 +19,12 @@ export function PercentCard({
   ...rest
 }: PercentCardProps) {
   return (
-    <PercentCardContainer type={type} {...rest}>
-      <PercentCardHeader>
+    <Container type={type} {...rest}>
+      <Header>
         <ArrowUpRightIcon type={type} name="arrow-up-right" />
-      </PercentCardHeader>
-      <PercentCardTitle>{percent}%</PercentCardTitle>
-      <PercentCardSubTitle>das refeições dentro da dieta</PercentCardSubTitle>
-    </PercentCardContainer>
+      </Header>
+      <Title>{percent}%</Title>
+      <SubTitle>das refeições dentro da dieta</SubTitle>
+    </Container>
   );
 }

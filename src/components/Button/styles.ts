@@ -7,7 +7,7 @@ export type ButtonTypeStyleProps = {
 
 type Props = ButtonTypeStyleProps;
 
-export const ButtonContainer = styled.TouchableOpacity<Props>`
+export const Container = styled.TouchableOpacity<Props>`
   width: 100%;
   display: flex;
   align-items: center;
@@ -25,7 +25,7 @@ export const ButtonContainer = styled.TouchableOpacity<Props>`
   `}
 `;
 
-export const ButtonTitle = styled.Text<Props>`
+export const Title = styled.Text<Props>`
   ${({ theme, type }) => css`
     color: ${type === "dark" ? theme.COLORS.WHITE : theme.COLORS.GRAY_100};
     font-size: ${theme.FONT_SIZE.SM_14}px;

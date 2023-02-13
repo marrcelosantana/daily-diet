@@ -1,5 +1,16 @@
-import { ButtonDietContainer } from "./styles";
+import { TouchableProps } from "react-native-svg";
+import { ButtonDietStyleProps, Container, Icon, Title } from "./styles";
 
-export function ButtonDiet() {
-  return <ButtonDietContainer></ButtonDietContainer>;
+type ButtonDietProps = TouchableProps &
+  ButtonDietStyleProps & {
+    title: string;
+  };
+
+export function ButtonDiet({ title, type, ...rest }: ButtonDietProps) {
+  return (
+    <Container type={type} {...rest}>
+      <Icon type={type} />
+      <Title>{title}</Title>
+    </Container>
+  );
 }

@@ -4,7 +4,7 @@ import { Button } from "@components/Button";
 import { Header } from "@components/Header";
 import { PercentCard } from "@components/PercentCard";
 
-import { HomeContainer, HomeContent, HomeTitle } from "./styles";
+import { Container, Content, Title } from "./styles";
 
 export default function Home() {
   const navigation = useNavigation();
@@ -18,19 +18,19 @@ export default function Home() {
   }
 
   return (
-    <HomeContainer>
+    <Container>
       <Header />
       <PercentCard percent="90,86" onPress={handleOpenStatistics} />
 
-      <HomeContent>
-        <HomeTitle>Refeições</HomeTitle>
+      <Content>
+        <Title>Refeições</Title>
         <Button
           type="dark"
           title="Nova refeição"
           icon="add"
           onPress={handleRegisterMeal}
         />
-      </HomeContent>
-    </HomeContainer>
+      </Content>
+    </Container>
   );
 }

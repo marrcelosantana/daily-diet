@@ -8,7 +8,7 @@ type Props = {
   type: StatisticsStyleProps;
 };
 
-export const StatisticsContainer = styled(SafeAreaView)<Props>`
+export const Container = styled(SafeAreaView)<Props>`
   width: 100%;
   height: 100%;
   ${({ theme, type }) => css`
@@ -18,13 +18,13 @@ export const StatisticsContainer = styled(SafeAreaView)<Props>`
   `}
 `;
 
-export const StatisticsHeader = styled.View`
+export const Header = styled.View`
   height: 200px;
   align-items: center;
   justify-content: center;
 `;
 
-export const StatisticsHeaderTitle = styled.Text`
+export const HeaderTitle = styled.Text`
   ${({ theme }) => css`
     color: ${theme.COLORS.GRAY_100};
     font-size: ${theme.FONT_SIZE.XXL_32}px;
@@ -32,7 +32,7 @@ export const StatisticsHeaderTitle = styled.Text`
   `}
 `;
 
-export const StatisticsHeaderSubtitle = styled.Text`
+export const HeaderSubtitle = styled.Text`
   ${({ theme }) => css`
     color: ${theme.COLORS.GRAY_200};
     font-size: ${theme.FONT_SIZE.MD_16}px;
@@ -40,7 +40,7 @@ export const StatisticsHeaderSubtitle = styled.Text`
   `}
 `;
 
-export const StatisticsContent = styled.View`
+export const Content = styled.View`
   width: 100%;
   height: 100%;
   background-color: white;
@@ -60,7 +60,7 @@ export const ArrowLeftIcon = styled(Feather).attrs<Props>(
   })
 )``;
 
-export const StatisticsContentTitle = styled.Text`
+export const ContentTitle = styled.Text`
   margin-bottom: 24px;
   ${({ theme }) => css`
     color: ${theme.COLORS.GRAY_100};

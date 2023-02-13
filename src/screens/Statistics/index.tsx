@@ -8,12 +8,12 @@ import {
   FooterCardsContainer,
   GeneralStatisticsCard,
   GoBackButton,
-  StatisticsContainer,
-  StatisticsContent,
-  StatisticsContentTitle,
-  StatisticsHeader,
-  StatisticsHeaderSubtitle,
-  StatisticsHeaderTitle,
+  Container,
+  Content,
+  ContentTitle,
+  Header,
+  HeaderSubtitle,
+  HeaderTitle,
   StatisticsStyleProps,
   SuccessCard,
 } from "./styles";
@@ -30,20 +30,18 @@ export function Statistics({ type = "success" }: StatisticsProps) {
   }
 
   return (
-    <StatisticsContainer type={type}>
+    <Container type={type}>
       <GoBackButton onPress={handleGoBack}>
         <ArrowLeftIcon type={type} name="arrow-left" />
       </GoBackButton>
 
-      <StatisticsHeader>
-        <StatisticsHeaderTitle>90,86%</StatisticsHeaderTitle>
-        <StatisticsHeaderSubtitle>
-          das refeições dentro da dieta
-        </StatisticsHeaderSubtitle>
-      </StatisticsHeader>
+      <Header>
+        <HeaderTitle>90,86%</HeaderTitle>
+        <HeaderSubtitle>das refeições dentro da dieta</HeaderSubtitle>
+      </Header>
 
-      <StatisticsContent>
-        <StatisticsContentTitle>Estatísticas gerais</StatisticsContentTitle>
+      <Content>
+        <ContentTitle>Estatísticas gerais</ContentTitle>
 
         <GeneralStatisticsCard>
           <CardTitle>22</CardTitle>
@@ -68,7 +66,7 @@ export function Statistics({ type = "success" }: StatisticsProps) {
             <CardSubtitle>refeições fora da dieta</CardSubtitle>
           </DangerCard>
         </FooterCardsContainer>
-      </StatisticsContent>
-    </StatisticsContainer>
+      </Content>
+    </Container>
   );
 }
