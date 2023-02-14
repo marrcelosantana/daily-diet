@@ -30,6 +30,10 @@ export function Details({ type = "inTheDiet" }: DetailsProps) {
     navigation.navigate("home");
   }
 
+  function handleEdit() {
+    navigation.navigate("update");
+  }
+
   return (
     <Container type={type}>
       <Header>
@@ -60,6 +64,7 @@ export function Details({ type = "inTheDiet" }: DetailsProps) {
             title="Editar refeição"
             type="dark"
             iconCommunity="lead-pencil"
+            onPress={handleEdit}
           />
 
           <Button

@@ -5,6 +5,7 @@ import { Register } from "@screens/Register";
 import { Statistics } from "@screens/Statistics";
 import { Feedback } from "@screens/Feedback";
 import { Details } from "@screens/Details";
+import { Update } from "@screens/Update";
 
 const { Navigator, Screen } = createNativeStackNavigator();
 
@@ -16,6 +17,7 @@ export function AppRoutes() {
       <Screen name="register" component={Register} />
       <Screen name="feedback" component={Feedback} />
       <Screen name="details" component={Details} />
+      <Screen name="update" component={Update} />
     </Navigator>
   );
 }

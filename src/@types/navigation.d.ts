@@ -6,6 +6,7 @@ export declare global {
       register: undefined;
       feedback: undefined;
       details: undefined;
+      update: undefined;
     }
   }
 }
