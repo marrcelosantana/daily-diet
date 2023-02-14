@@ -29,7 +29,7 @@ export const HeaderTitle = styled.Text`
 export const Form = styled.View`
   width: 100%;
   height: 100%;
-  background-color: ${({ theme }) => theme.COLORS.WHITE};
+  background-color: ${({ theme }) => theme.COLORS.GRAY_700};
   border-radius: 20px;
   padding: 24px;
 `;

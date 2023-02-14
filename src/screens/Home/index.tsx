@@ -4,7 +4,8 @@ import { Button } from "@components/Button";
 import { Header } from "@components/Header";
 import { PercentCard } from "@components/PercentCard";
 
-import { Container, Content, Title } from "./styles";
+import { Container, Content, Date, Title } from "./styles";
+import { MealCard } from "@components/MealCard";
 
 export function Home() {
   const navigation = useNavigation();
@@ -30,6 +31,15 @@ export function Home() {
           icon="add"
           onPress={handleRegisterMeal}
         />
+        <Date>12.03.2023</Date>
+
+        <MealCard
+          title="Whey protein com leite e biscoito com xilito
+          "
+          status="inTheDiet"
+          date="20:00"
+        />
+        <MealCard title="X-Tudo" status="offDiet" date="18:00" />
       </Content>
     </Container>
   );

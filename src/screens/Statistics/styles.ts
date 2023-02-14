@@ -47,6 +47,7 @@ export const Content = styled.View`
   border-radius: 20px;
   align-items: center;
   padding: 24px;
+  background-color: ${({ theme }) => theme.COLORS.GRAY_700};
 `;
 
 export const GoBackButton = styled.TouchableOpacity`
