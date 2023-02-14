@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components/native";
 
 export type ButtonDietStyleProps = {
-  type: "success" | "danger";
+  type: "inTheDiet" | "offDiet";
   isActive?: boolean;
 };
 
@@ -16,11 +16,11 @@ export const Container = styled.TouchableOpacity<ButtonDietStyleProps>`
   ${({ theme, type, isActive }) =>
     isActive
       ? css`
-          background-color: ${type === "success"
+          background-color: ${type === "inTheDiet"
             ? theme.COLORS.GREEN_LIGHT
             : theme.COLORS.RED_LIGHT};
           border: 1px solid
-            ${type === "success"
+            ${type === "inTheDiet"
               ? theme.COLORS.GREEN_DARK
               : theme.COLORS.RED_DARK};
         `
@@ -44,5 +44,5 @@ export const Icon = styled.View<ButtonDietStyleProps>`
   margin-right: 8px;
 
   background-color: ${({ theme, type }) =>
-    type === "success" ? theme.COLORS.GREEN_DARK : theme.COLORS.RED_DARK};
+    type === "inTheDiet" ? theme.COLORS.GREEN_DARK : theme.COLORS.RED_DARK};
 `;

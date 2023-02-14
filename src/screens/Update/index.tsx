@@ -67,13 +67,13 @@ export function Update() {
         <ButtonsDietContainer>
           <ButtonDiet
             title="Sim"
-            type="success"
+            type="inTheDiet"
             isActive={isActiveYes}
             onPress={handleChoice}
           />
           <ButtonDiet
             title="Não"
-            type="danger"
+            type="offDiet"
             isActive={isActiveNo}
             onPress={handleChoice}
           />

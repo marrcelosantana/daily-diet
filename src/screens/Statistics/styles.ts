@@ -2,7 +2,7 @@ import styled, { css } from "styled-components/native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Feather } from "@expo/vector-icons";
 
-export type StatisticsStyleProps = "success" | "danger";
+export type StatisticsStyleProps = "inTheDiet" | "offDiet";
 
 type Props = {
   type: StatisticsStyleProps;
@@ -12,7 +12,7 @@ export const Container = styled(SafeAreaView)<Props>`
   width: 100%;
   height: 100%;
   ${({ theme, type }) => css`
-    background-color: ${type === "success"
+    background-color: ${type === "inTheDiet"
       ? theme.COLORS.GREEN_LIGHT
       : theme.COLORS.RED_LIGHT};
   `}
@@ -57,7 +57,8 @@ export const GoBackButton = styled.TouchableOpacity`
 export const ArrowLeftIcon = styled(Feather).attrs<Props>(
   ({ theme, type }) => ({
     size: 24,
-    color: type === "success" ? theme.COLORS.GREEN_DARK : theme.COLORS.RED_DARK,
+    color:
+      type === "inTheDiet" ? theme.COLORS.GREEN_DARK : theme.COLORS.RED_DARK,
   })
 )``;
 
@@ -103,7 +104,7 @@ export const FooterCardsContainer = styled.View`
   width: 100%;
 `;
 
-export const SuccessCard = styled.View`
+export const InTheDietCard = styled.View`
   width: 48%;
   background-color: ${({ theme }) => theme.COLORS.GREEN_LIGHT};
   height: 89px;
@@ -113,7 +114,7 @@ export const SuccessCard = styled.View`
   justify-content: center;
 `;
 
-export const DangerCard = styled.View`
+export const OffDietCard = styled.View`
   width: 48%;
   background-color: ${({ theme }) => theme.COLORS.RED_LIGHT};
   height: 89px;

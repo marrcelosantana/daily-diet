@@ -14,7 +14,7 @@ type PercentCardProps = TouchableProps & {
 };
 
 export function PercentCard({
-  type = "success",
+  type = "inTheDiet",
   percent,
   ...rest
 }: PercentCardProps) {

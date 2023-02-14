@@ -2,7 +2,7 @@ import styled, { css } from "styled-components/native";
 
 import { Feather } from "@expo/vector-icons";
 
-export type PercentCardStyleProps = "success" | "danger";
+export type PercentCardStyleProps = "inTheDiet" | "offDiet";
 
 type Props = {
   type: PercentCardStyleProps;
@@ -16,7 +16,7 @@ export const Container = styled.TouchableOpacity<Props>`
   border-radius: 8px;
 
   ${({ theme, type }) => css`
-    background-color: ${type === "success"
+    background-color: ${type === "inTheDiet"
       ? theme.COLORS.GREEN_LIGHT
       : theme.COLORS.RED_LIGHT};
   `}
@@ -47,6 +47,7 @@ export const SubTitle = styled.Text`
 export const ArrowUpRightIcon = styled(Feather).attrs<Props>(
   ({ theme, type }) => ({
     size: 24,
-    color: type === "success" ? theme.COLORS.GREEN_DARK : theme.COLORS.RED_DARK,
+    color:
+      type === "inTheDiet" ? theme.COLORS.GREEN_DARK : theme.COLORS.RED_DARK,
   })
 )``;

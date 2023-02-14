@@ -4,7 +4,7 @@ import {
   ArrowLeftIcon,
   CardSubtitle,
   CardTitle,
-  DangerCard,
+  OffDietCard,
   FooterCardsContainer,
   GeneralStatisticsCard,
   GoBackButton,
@@ -15,14 +15,14 @@ import {
   HeaderSubtitle,
   HeaderTitle,
   StatisticsStyleProps,
-  SuccessCard,
+  InTheDietCard,
 } from "./styles";
 
 type StatisticsProps = {
   type: StatisticsStyleProps;
 };
 
-export function Statistics({ type = "success" }: StatisticsProps) {
+export function Statistics({ type = "inTheDiet" }: StatisticsProps) {
   const navigation = useNavigation();
 
   function handleGoBack() {
@@ -56,15 +56,15 @@ export function Statistics({ type = "success" }: StatisticsProps) {
         </GeneralStatisticsCard>
 
         <FooterCardsContainer>
-          <SuccessCard>
+          <InTheDietCard>
             <CardTitle>99</CardTitle>
             <CardSubtitle>refeições dentro da dieta</CardSubtitle>
-          </SuccessCard>
+          </InTheDietCard>
 
-          <DangerCard>
+          <OffDietCard>
             <CardTitle>10</CardTitle>
             <CardSubtitle>refeições fora da dieta</CardSubtitle>
-          </DangerCard>
+          </OffDietCard>
         </FooterCardsContainer>
       </Content>
     </Container>
