@@ -12,14 +12,14 @@ import {
 type MealCardProps = TouchableProps &
   MealStatusProps & {
     title: string;
-    date: string;
+    time: string;
   };
 
-export function MealCard({ status, title, date, ...rest }: MealCardProps) {
+export function MealCard({ status, title, time, ...rest }: MealCardProps) {
   return (
     <Container {...rest}>
       <InfoContainer>
-        <Time>{date}</Time>
+        <Time>{time}</Time>
         <Divider />
         <Title numberOfLines={1} ellipsizeMode="tail">
           {title}

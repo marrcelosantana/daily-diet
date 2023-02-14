@@ -6,7 +6,7 @@ export type ButtonDietStyleProps = {
 };
 
 export const Container = styled.TouchableOpacity<ButtonDietStyleProps>`
-  width: 160px;
+  width: 175px;
   height: 50px;
   flex-direction: row;
   align-items: center;
