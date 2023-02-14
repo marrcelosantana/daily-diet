@@ -3,6 +3,7 @@ import { Text, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 import { StatusTag } from "@components/StatusTag";
+import { Button } from "@components/Button";
 
 import {
   ArrowLeftIcon,
@@ -19,7 +20,6 @@ import {
   InfoSubtitle,
   ButtonsContainer,
 } from "./styles";
-import { Button } from "@components/Button";
 
 type DetailsProps = DetailsStyleProps & {};
 
