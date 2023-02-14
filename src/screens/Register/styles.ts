@@ -23,7 +23,7 @@ export const HeaderTitle = styled.Text`
     font-size: ${theme.FONT_SIZE.LG_18}px;
     font-family: ${theme.FONT_FAMILY.BOLD};
   `}
-  margin-right: 20px;
+  margin-right: 24px;
 `;
 
 export const Form = styled.View`
