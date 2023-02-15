@@ -1,5 +1,5 @@
 import { useState, useId } from "react";
-import { Text, TouchableOpacity } from "react-native";
+import { Alert, Text, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import {
   DateTimePickerAndroid,
@@ -11,6 +11,8 @@ import { Button } from "@components/Button";
 import { Radio } from "@components/Radio";
 
 import { formatDate } from "@utils/formatDate";
+import { AppError } from "@utils/AppError";
+import { mealCreate } from "@storage/meal/mealCreate";
 
 import {
   ArrowLeftIcon,
@@ -53,8 +55,41 @@ export function Register() {
     });
   }
 
-  function handleRegister() {
-    navigation.navigate("feedback");
+  async function handleRegister() {
+    if (name === "" || description === "") {
+      return Alert.alert(
+        "Nova Refeição",
+        "Você deixou de informar algum dado."
+      );
+    }
+
+    if (dietOption === null) {
+      return Alert.alert(
+        "Nova Refeição",
+        "Você não informou se está dentro ou fora da dieta."
+      );
+    }
+
+    try {
+      const newMeal = {
+        id: mealId,
+        name: name,
+        description: description,
+        date: date,
+        status: dietOption === "Sim" ? "inTheDiet" : "offDiet",
+      };
+
+      await mealCreate(newMeal);
+      console.log(newMeal);
+
+      navigation.navigate("feedback");
+    } catch (error) {
+      if (error instanceof AppError) {
+        Alert.alert("Registro", error.message);
+      } else {
+        console.log(error);
+      }
+    }
   }
 
   return (
@@ -69,12 +104,20 @@ export function Register() {
       </Header>
 
       <Form>
-        <Input title="Nome" maxLength={40} />
+        <Input
+          title="Nome"
+          maxLength={40}
+          autoCorrect={false}
+          value={name}
+          onChangeText={(name) => setName(name)}
+        />
         <Input
           title="Descrição"
           maxLength={220}
           style={{ height: 120 }}
           textAlignVertical={"top"}
+          value={description}
+          onChangeText={(description) => setDescription(description)}
         />
 
         <MiniInputsContainer>

@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components/native";
-import { Diet } from "@models/Diet";
+import { Diet } from "@models/MealsByDate";
 
 type RadioStyleProps = {
   type: Diet;
