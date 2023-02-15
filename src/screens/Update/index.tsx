@@ -25,7 +25,7 @@ export function Update() {
   const navigation = useNavigation();
 
   function handleGoBack() {
-    navigation.navigate("home");
+    navigation.navigate("details");
   }
 
   function handleChoice() {
@@ -44,7 +44,7 @@ export function Update() {
           <ArrowLeftIcon name="arrow-left" />
         </TouchableOpacity>
 
-        <HeaderTitle>Nova refeição</HeaderTitle>
+        <HeaderTitle>Editar refeição</HeaderTitle>
         <Text />
       </Header>
 

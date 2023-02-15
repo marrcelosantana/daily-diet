@@ -7,6 +7,8 @@ import { Input } from "@components/Input";
 import { ButtonDiet } from "@components/ButtonDiet";
 import { Button } from "@components/Button";
 
+import { Meal } from "@models/Meal";
+
 import {
   ArrowLeftIcon,
   ButtonsDietTitle,
@@ -19,6 +21,8 @@ import {
 } from "./styles";
 
 export function Register() {
+  const [meeal, setMeal] = useState<Meal[]>([]);
+
   const [isActiveYes, setIsActiveYes] = useState(true);
   const [isActiveNo, setIsActiveNo] = useState(false);
 
@@ -58,8 +62,8 @@ export function Register() {
         />
 
         <MiniInputsContainer>
-          <Input title="Data" style={{ width: 160 }} />
-          <Input title="Horário" style={{ width: 160 }} />
+          <Input title="Data" style={{ width: 180 }} />
+          <Input title="Horário" style={{ width: 180 }} />
         </MiniInputsContainer>
 
         <ButtonsDietTitle>Está dentro da dieta?</ButtonsDietTitle>
