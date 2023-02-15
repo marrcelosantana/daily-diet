@@ -42,11 +42,7 @@ export const MiniInputsContainer = styled.View`
 `;
 
 export const ButtonsDietTitle = styled.Text`
-  ${({ theme }) => css`
-    font-family: ${theme.FONT_FAMILY.BOLD};
-    font-size: ${theme.FONT_SIZE.SM_14}px;
-    color: ${theme.COLORS.GRAY_200};
-  `}
+  flex-direction: row;
   margin-top: 16px;
 `;
 

@@ -4,10 +4,7 @@ import { Text, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 import { Input } from "@components/Input";
-import { ButtonDiet } from "@components/ButtonDiet";
 import { Button } from "@components/Button";
-
-import { Meal } from "@models/Meal";
 
 import {
   ArrowLeftIcon,
@@ -19,12 +16,12 @@ import {
   Header,
   HeaderTitle,
 } from "./styles";
+import { Radio } from "@components/Radio";
 
 export function Register() {
-  const [meeal, setMeal] = useState<Meal[]>([]);
-
-  const [isActiveYes, setIsActiveYes] = useState(true);
-  const [isActiveNo, setIsActiveNo] = useState(false);
+  const [name, setName] = useState<string>("");
+  const [description, setDescription] = useState<string>("");
+  const [dietOption, setDietOption] = useState<string | null>(null);
 
   const navigation = useNavigation();
 
@@ -32,9 +29,8 @@ export function Register() {
     navigation.navigate("home");
   }
 
-  function handleChoice() {
-    setIsActiveYes(!isActiveYes);
-    setIsActiveNo(!isActiveNo);
+  function handleDietOption(option: string) {
+    setDietOption(option);
   }
 
   function handleRegister() {
@@ -66,20 +62,11 @@ export function Register() {
           <Input title="Horário" style={{ width: 180 }} />
         </MiniInputsContainer>
 
-        <ButtonsDietTitle>Está dentro da dieta?</ButtonsDietTitle>
-
         <ButtonsDietContainer>
-          <ButtonDiet
-            title="Sim"
-            type="inTheDiet"
-            isActive={isActiveYes}
-            onPress={handleChoice}
-          />
-          <ButtonDiet
-            title="Não"
-            type="offDiet"
-            isActive={isActiveNo}
-            onPress={handleChoice}
+          <Radio
+            title="Está dentro da dieta?"
+            options={["Sim", "Não"]}
+            onSelect={handleDietOption}
           />
         </ButtonsDietContainer>
 
