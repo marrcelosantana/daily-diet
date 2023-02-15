@@ -7,7 +7,6 @@ import { Button } from "@components/Button";
 
 import {
   ArrowLeftIcon,
-  ButtonsDietTitle,
   MiniInputsContainer,
   ButtonsDietContainer,
   Container,
