@@ -52,7 +52,7 @@ export const OptionWrapper = styled.Pressable<RadioStyleProps>`
 export const OptionIcon = styled.View<RadioStyleProps>`
   width: 8px;
   height: 8px;
-  border-radius: 50%;
+  border-radius: 9999px;
   margin-right: 5px;
   background-color: ${({ theme, type }) => css`
     ${type === "inTheDiet" ? theme.COLORS.GREEN_DARK : theme.COLORS.RED_DARK}

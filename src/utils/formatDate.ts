@@ -7,12 +7,12 @@ export function formatDate(dateInMiliseconds: number, type: "date" | "time") {
         .toString()
         .padStart(2, "0");
       const year = unformattedDate.getFullYear().toString().slice(2);
-      const formattedDate = `${day}/${month}${year}`;
+      const formattedDate = `${day}/${month}/${year}`;
       return formattedDate;
 
     case "time":
       return new Date(dateInMiliseconds).toLocaleTimeString().substring(0, 5);
     default:
-      return new Date().toLocaleDateString;
+      return new Date().toLocaleDateString();
   }
 }

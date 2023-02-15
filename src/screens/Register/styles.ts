@@ -44,7 +44,7 @@ export const MiniInputsContainer = styled.View`
 export const RadioContainer = styled.View`
   flex-direction: row;
   justify-content: space-between;
-  margin: 32px 0px 124px 0px;
+  margin: 32px 0px 82px 0px;
 `;
 
 export const ArrowLeftIcon = styled(Feather).attrs(({ theme }) => ({

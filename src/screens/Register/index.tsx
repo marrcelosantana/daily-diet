@@ -10,6 +10,8 @@ import { Input } from "@components/Input";
 import { Button } from "@components/Button";
 import { Radio } from "@components/Radio";
 
+import { formatDate } from "@utils/formatDate";
+
 import {
   ArrowLeftIcon,
   MiniInputsContainer,
@@ -78,17 +80,19 @@ export function Register() {
         <MiniInputsContainer>
           <Input
             title="Data"
-            style={{ width: 180 }}
+            style={{ width: 160 }}
             onPressIn={() => {
               showMode("date");
             }}
+            defaultValue={formatDate(date, "date")}
           />
           <Input
             title="Horário"
-            style={{ width: 180 }}
+            style={{ width: 160 }}
             onPressIn={() => {
               showMode("time");
             }}
+            defaultValue={formatDate(date, "time")}
           />
         </MiniInputsContainer>
 
