@@ -1,6 +1,10 @@
 import { useState, useId } from "react";
 import { Text, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import {
+  DateTimePickerAndroid,
+  DateTimePickerEvent,
+} from "@react-native-community/datetimepicker";
 
 import { Input } from "@components/Input";
 import { Button } from "@components/Button";
@@ -23,7 +27,6 @@ export function Register() {
   const [date, setDate] = useState<number>(new Date().getTime());
 
   const mealId = useId();
-
   const navigation = useNavigation();
 
   function handleGoBack() {
@@ -34,7 +37,19 @@ export function Register() {
     setDietOption(option);
   }
 
-  function showMode(mode: "date" | "time") {}
+  function onChange(event: DateTimePickerEvent, selectedDate?: Date) {
+    const formatedDate = selectedDate!.getTime();
+    setDate(formatedDate);
+  }
+
+  function showMode(mode: "date" | "time") {
+    DateTimePickerAndroid.open({
+      value: new Date(date),
+      onChange,
+      mode,
+      is24Hour: true,
+    });
+  }
 
   function handleRegister() {
     navigation.navigate("feedback");
@@ -61,8 +76,20 @@ export function Register() {
         />
 
         <MiniInputsContainer>
-          <Input title="Data" style={{ width: 180 }} />
-          <Input title="Horário" style={{ width: 180 }} />
+          <Input
+            title="Data"
+            style={{ width: 180 }}
+            onPressIn={() => {
+              showMode("date");
+            }}
+          />
+          <Input
+            title="Horário"
+            style={{ width: 180 }}
+            onPressIn={() => {
+              showMode("time");
+            }}
+          />
         </MiniInputsContainer>
 
         <RadioContainer>
