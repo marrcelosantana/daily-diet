@@ -1,6 +1,6 @@
 import { Diet } from "./Diet";
 export interface Meal {
-  id: number;
+  id: string;
   name: string;
   description: string;
   date: string;

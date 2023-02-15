@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useId } from "react";
 import { Text, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
@@ -21,6 +21,8 @@ export function Register() {
   const [description, setDescription] = useState<string>("");
   const [dietOption, setDietOption] = useState<string | null>(null);
   const [date, setDate] = useState<number>(new Date().getTime());
+
+  const mealId = useId();
 
   const navigation = useNavigation();
 
