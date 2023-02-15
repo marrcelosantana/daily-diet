@@ -5,11 +5,11 @@ import { MealsByDate } from "@models/MealsByDate";
 import { Meal } from "@models/Meal";
 
 import { formatDate } from "@utils/formatDate";
-import { mealsGetAll } from "./mealsGetAll";
+import { getAllMeals } from "./getAllMeals";
 
-export async function mealCreate(newMeal: Meal) {
+export async function createMeal(newMeal: Meal) {
   try {
-    const storage = await mealsGetAll();
+    const storage = await getAllMeals();
 
     const mealByDate = storage.find(
       (data) => data.title === formatDate(newMeal.date, "date")

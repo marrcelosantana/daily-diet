@@ -12,7 +12,7 @@ import { Radio } from "@components/Radio";
 
 import { formatDate } from "@utils/formatDate";
 import { AppError } from "@utils/AppError";
-import { mealCreate } from "@storage/meal/mealCreate";
+import { createMeal } from "@storage/meal/createMeal";
 
 import {
   ArrowLeftIcon,
@@ -79,8 +79,7 @@ export function Register() {
         status: dietOption === "Sim" ? "inTheDiet" : "offDiet",
       };
 
-      await mealCreate(newMeal);
-      console.log(newMeal);
+      await createMeal(newMeal);
 
       navigation.navigate("feedback");
     } catch (error) {
