@@ -1,8 +1,8 @@
+import { Diet } from "./Diet";
 export interface Meal {
   id: number;
   name: string;
   description: string;
   date: string;
-  time: string;
-  status: "inTheDiet" | "offDiet";
+  status: Diet;
 }

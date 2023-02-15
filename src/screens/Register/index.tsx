@@ -20,6 +20,7 @@ export function Register() {
   const [name, setName] = useState<string>("");
   const [description, setDescription] = useState<string>("");
   const [dietOption, setDietOption] = useState<string | null>(null);
+  const [date, setDate] = useState<number>(new Date().getTime());
 
   const navigation = useNavigation();
 
@@ -30,6 +31,8 @@ export function Register() {
   function handleDietOption(option: string) {
     setDietOption(option);
   }
+
+  function showMode(mode: "date" | "time") {}
 
   function handleRegister() {
     navigation.navigate("feedback");
