@@ -20,7 +20,7 @@ export function MealCard({ meal, ...rest }: MealCardProps) {
   return (
     <Container {...rest}>
       <InfoContainer>
-        <Time>{formatDate(meal.date, "time")}</Time>
+        <Time>{formatDate(meal.date, "date")}</Time>
         <Divider />
         <Title numberOfLines={1} ellipsizeMode="tail">
           {meal.name}

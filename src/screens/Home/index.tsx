@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { FlatList, SectionList } from "react-native";
+import { FlatList } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 import { EmptyListContent } from "@components/EmptyListContent";
@@ -9,15 +9,12 @@ import { PercentCard } from "@components/PercentCard";
 import { MealCard } from "@components/MealCard";
 
 import { Meal } from "@models/Meal";
-import { MealsByDate } from "@models/MealsByDate";
-
-import { Container, Content, Date, Title } from "./styles";
 import { getAllMeals } from "@storage/meal/getAllMeals";
 
-export function Home() {
-  const [data, setData] = useState<MealsByDate[]>([]);
+import { Container, Content, Title } from "./styles";
 
-  const meals = data.map((meal) => meal.meals).flat();
+export function Home() {
+  const [meals, setMeals] = useState<Meal[]>([]);
 
   const navigation = useNavigation();
 
@@ -25,15 +22,14 @@ export function Home() {
     navigation.navigate("details");
   }
 
-  async function getData() {
+  async function fetchMeals() {
     const data = await getAllMeals();
-    setData(data);
+    setMeals(data);
   }
 
   useEffect(() => {
-    getData();
-    console.log(meals);
-  }, []);
+    fetchMeals();
+  }, [meals]);
 
   return (
     <Container>
