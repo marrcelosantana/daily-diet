@@ -1,5 +1,4 @@
-import { Text, TouchableOpacity } from "react-native";
-
+import { Alert, Text, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 import { StatusTag } from "@components/StatusTag";
@@ -32,6 +31,13 @@ export function Details({ type = "inTheDiet" }: DetailsProps) {
 
   function handleEdit() {
     navigation.navigate("update");
+  }
+
+  function handleRemoveMeal() {
+    Alert.alert("Remover", "Deseja realmente excluir o registro da refeição?", [
+      { text: "Cancelar", style: "cancel" },
+      { text: "Excluir", onPress: () => {} },
+    ]);
   }
 
   return (
@@ -72,6 +78,7 @@ export function Details({ type = "inTheDiet" }: DetailsProps) {
             type="light"
             iconCommunity="trash-can"
             style={{ marginTop: -15 }}
+            onPress={handleRemoveMeal}
           />
         </ButtonsContainer>
       </Content>
