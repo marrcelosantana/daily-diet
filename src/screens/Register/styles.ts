@@ -41,18 +41,10 @@ export const MiniInputsContainer = styled.View`
   justify-content: space-between;
 `;
 
-export const ButtonsDietTitle = styled.Text`
+export const RadioContainer = styled.View`
   flex-direction: row;
-  margin-top: 16px;
-`;
-
-export const ButtonsDietContainer = styled.View`
-  width: 100%;
-  flex-direction: row;
-  margin-top: 16px;
-  align-items: center;
   justify-content: space-between;
-  margin-bottom: 76px;
+  margin: 32px 0px 124px 0px;
 `;
 
 export const ArrowLeftIcon = styled(Feather).attrs(({ theme }) => ({

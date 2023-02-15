@@ -1,22 +1,20 @@
 import { useState } from "react";
 import { Text, TouchableOpacity } from "react-native";
-
 import { useNavigation } from "@react-navigation/native";
 
 import { Input } from "@components/Input";
 import { Button } from "@components/Button";
+import { Radio } from "@components/Radio";
 
 import {
   ArrowLeftIcon,
-  ButtonsDietTitle,
   MiniInputsContainer,
-  ButtonsDietContainer,
+  RadioContainer,
   Container,
   Form,
   Header,
   HeaderTitle,
 } from "./styles";
-import { Radio } from "@components/Radio";
 
 export function Register() {
   const [name, setName] = useState<string>("");
@@ -62,13 +60,13 @@ export function Register() {
           <Input title="Horário" style={{ width: 180 }} />
         </MiniInputsContainer>
 
-        <ButtonsDietContainer>
+        <RadioContainer>
           <Radio
             title="Está dentro da dieta?"
             options={["Sim", "Não"]}
             onSelect={handleDietOption}
           />
-        </ButtonsDietContainer>
+        </RadioContainer>
 
         <Button
           type="dark"
