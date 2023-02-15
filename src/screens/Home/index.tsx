@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { FlatList } from "react-native";
+import { useEffect, useState } from "react";
+import { FlatList, SectionList } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 import { EmptyListContent } from "@components/EmptyListContent";
@@ -8,50 +8,40 @@ import { Header } from "@components/Header";
 import { PercentCard } from "@components/PercentCard";
 import { MealCard } from "@components/MealCard";
 
+import { Meal } from "@models/Meal";
+import { MealsByDate } from "@models/MealsByDate";
+
 import { Container, Content, Date, Title } from "./styles";
+import { getAllMeals } from "@storage/meal/getAllMeals";
 
 export function Home() {
-  const [mealCards, setMealCards] = useState<any[]>([
-    {
-      id: 1,
-      title: "Whey protein com leite e biscoito com xilito",
-      status: "inTheDiet",
-      time: "20:00",
-    },
+  const [data, setData] = useState<MealsByDate[]>([]);
 
-    {
-      id: 2,
-      title: "X-Tudo",
-      status: "offDiet",
-      time: "19:00",
-    },
-
-    {
-      id: 3,
-      title: "Pipoca com Chocolate",
-      status: "offDiet",
-      time: "14:30",
-    },
-  ]);
+  const meals = data.map((meal) => meal.meals).flat();
 
   const navigation = useNavigation();
-
-  function handleOpenStatistics() {
-    navigation.navigate("statistics");
-  }
-
-  function handleRegisterMeal() {
-    navigation.navigate("register");
-  }
 
   function handleOpenCard() {
     navigation.navigate("details");
   }
 
+  async function getData() {
+    const data = await getAllMeals();
+    setData(data);
+  }
+
+  useEffect(() => {
+    getData();
+    console.log(meals);
+  }, []);
+
   return (
     <Container>
       <Header />
-      <PercentCard percent="90,86" onPress={handleOpenStatistics} />
+      <PercentCard
+        percent="90,86"
+        onPress={() => navigation.navigate("statistics")}
+      />
 
       <Content>
         <Title>Refeições</Title>
@@ -59,22 +49,16 @@ export function Home() {
           type="dark"
           title="Nova refeição"
           icon="add"
-          onPress={handleRegisterMeal}
+          onPress={() => navigation.navigate("register")}
         />
-        <Date>12.03.2023</Date>
 
         <FlatList
-          data={mealCards}
+          data={meals}
           keyExtractor={(item) => item.id}
           renderItem={({ item }) => (
-            <MealCard
-              time={item.time}
-              title={item.title}
-              status={item.status}
-              onPress={handleOpenCard}
-            />
+            <MealCard meal={item} onPress={handleOpenCard} key={item.id} />
           )}
-          contentContainerStyle={mealCards.length === 0 && { flex: 1 }}
+          contentContainerStyle={meals.length === 0 && { flex: 1 }}
           ListEmptyComponent={() => <EmptyListContent />}
         />
       </Content>

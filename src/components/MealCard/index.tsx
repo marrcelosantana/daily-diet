@@ -1,3 +1,5 @@
+import { Meal } from "@models/Meal";
+import { formatDate } from "@utils/formatDate";
 import { TouchableProps } from "react-native-svg";
 import {
   Container,
@@ -11,22 +13,21 @@ import {
 
 type MealCardProps = TouchableProps &
   MealStatusProps & {
-    title: string;
-    time: string;
+    meal: Meal;
   };
 
-export function MealCard({ status, title, time, ...rest }: MealCardProps) {
+export function MealCard({ meal, ...rest }: MealCardProps) {
   return (
     <Container {...rest}>
       <InfoContainer>
-        <Time>{time}</Time>
+        <Time>{formatDate(meal.date, "time")}</Time>
         <Divider />
         <Title numberOfLines={1} ellipsizeMode="tail">
-          {title}
+          {meal.name}
         </Title>
       </InfoContainer>
 
-      <Status status={status} />
+      <Status status={meal.status} />
     </Container>
   );
 }

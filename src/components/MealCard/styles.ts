@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components/native";
 
 export type MealStatusProps = {
-  status?: "inTheDiet" | "offDiet";
+  status?: string;
 };
 
 export const Container = styled.TouchableOpacity`
