@@ -3,7 +3,6 @@ import { Text, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 import { Input } from "@components/Input";
-import { ButtonDiet } from "@components/ButtonDiet";
 import { Button } from "@components/Button";
 
 import {
@@ -60,23 +59,6 @@ export function Update() {
           <Input title="Data" style={{ width: 160 }} />
           <Input title="Horário" style={{ width: 160 }} />
         </MiniInputsContainer>
-
-        <ButtonsDietTitle>Está dentro da dieta?</ButtonsDietTitle>
-
-        <ButtonsDietContainer>
-          <ButtonDiet
-            title="Sim"
-            type="inTheDiet"
-            isActive={isActiveYes}
-            onPress={handleChoice}
-          />
-          <ButtonDiet
-            title="Não"
-            type="offDiet"
-            isActive={isActiveNo}
-            onPress={handleChoice}
-          />
-        </ButtonsDietContainer>
 
         <Button type="dark" title="Cadastrar refeição" onPress={handleUpdate} />
       </Form>
