@@ -110,7 +110,7 @@ export function Register() {
       <Form>
         <Input
           title="Nome"
-          maxLength={40}
+          maxLength={60}
           autoCorrect={false}
           value={name}
           onChangeText={(name) => setName(name)}

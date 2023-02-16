@@ -17,10 +17,11 @@ export const Container = styled.View`
 `;
 
 export const Icon = styled.View<StatusTagStyleProps>`
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
   border-radius: 9999px;
   margin-right: 8px;
+  margin-top: 2px;
 
   ${({ theme, type }) => css`
     background-color: ${type === "inTheDiet"

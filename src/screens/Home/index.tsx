@@ -12,7 +12,6 @@ import { Meal } from "@models/Meal";
 import { getAllMeals } from "@storage/meal/getAllMeals";
 
 import { Container, Content, Title } from "./styles";
-import { clearStorage } from "@storage/meal/clearStorage";
 
 export function Home() {
   const [meals, setMeals] = useState<Meal[]>([]);
@@ -59,6 +58,7 @@ export function Home() {
               key={item.id}
             />
           )}
+          showsVerticalScrollIndicator={false}
           contentContainerStyle={meals.length === 0 && { flex: 1 }}
           ListEmptyComponent={() => <EmptyListContent />}
         />
