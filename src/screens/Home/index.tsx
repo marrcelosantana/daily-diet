@@ -10,11 +10,19 @@ import { MealCard } from "@components/MealCard";
 
 import { Meal } from "@models/Meal";
 import { getAllMeals } from "@storage/meal/getAllMeals";
+import { formatPercentage } from "@utils/formatPercent";
 
 import { Container, Content, Title } from "./styles";
 
 export function Home() {
   const [meals, setMeals] = useState<Meal[]>([]);
+
+  const mealsInTheDiet = meals.filter(
+    (meal) => meal.status === "inTheDiet"
+  ).length;
+  const totalMeals = meals.length;
+
+  const percentInTheDiet = formatPercentage(mealsInTheDiet, totalMeals);
 
   const navigation = useNavigation();
 
@@ -35,7 +43,7 @@ export function Home() {
     <Container>
       <Header />
       <PercentCard
-        percent="90,86"
+        percent={percentInTheDiet}
         onPress={() => navigation.navigate("statistics")}
       />
 

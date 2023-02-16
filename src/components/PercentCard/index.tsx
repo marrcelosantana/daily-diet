@@ -24,7 +24,7 @@ export function PercentCard({
       <Header>
         <ArrowUpRightIcon type={type} name="arrow-up-right" />
       </Header>
-      <Title>{percent}%</Title>
+      <Title>{percent}</Title>
       <SubTitle>das refeições dentro da dieta</SubTitle>
     </Container>
   );
