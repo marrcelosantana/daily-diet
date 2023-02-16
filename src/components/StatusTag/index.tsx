@@ -1,14 +1,16 @@
 import { Container, Icon, StatusTagStyleProps, Title } from "./styles";
 
-type StatusTagProps = StatusTagStyleProps & {
-  title: string;
-};
+type StatusTagProps = StatusTagStyleProps & {};
 
-export function StatusTag({ title, type }: StatusTagProps) {
+export function StatusTag({ type }: StatusTagProps) {
   return (
     <Container>
       <Icon type={type} />
-      <Title>{title}</Title>
+      {type === "inTheDiet" ? (
+        <Title>Dentro da dieta</Title>
+      ) : (
+        <Title>Fora da dieta</Title>
+      )}
     </Container>
   );
 }

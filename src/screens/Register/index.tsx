@@ -55,6 +55,10 @@ export function Register() {
     });
   }
 
+  function goToFeedback(status: string) {
+    navigation.navigate("feedback", { status });
+  }
+
   async function handleRegister() {
     if (name === "" || description === "") {
       return Alert.alert(
@@ -79,9 +83,10 @@ export function Register() {
         status: dietOption === "Sim" ? "inTheDiet" : "offDiet",
       };
 
-      await createMeal(newMeal);
+      const status = newMeal.status;
 
-      navigation.navigate("feedback");
+      await createMeal(newMeal);
+      goToFeedback(status);
     } catch (error) {
       if (error instanceof AppError) {
         Alert.alert("Registro", error.message);

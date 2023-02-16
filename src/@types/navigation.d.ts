@@ -7,9 +7,9 @@ export declare global {
       home: undefined;
       statistics: { meals: Meal[] };
       register: undefined;
-      feedback: { type: Diet };
-      details: { id: string };
-      update: { id: string };
+      feedback: { status: string };
+      details: { meal: Meal; status: string };
+      update: { meal: Meal };
     }
   }
 }

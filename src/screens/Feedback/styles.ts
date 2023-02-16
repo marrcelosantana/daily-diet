@@ -3,7 +3,7 @@ import styled, { css } from "styled-components/native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export type FeedbackStyleProps = {
-  isInDiet: boolean;
+  status: string;
 };
 
 export const Container = styled(SafeAreaView)`
@@ -22,10 +22,12 @@ export const Highlight = styled.View<FeedbackStyleProps>`
 `;
 
 export const Title = styled.Text<FeedbackStyleProps>`
-  ${({ theme, isInDiet }) => css`
+  ${({ theme, status }) => css`
     font-size: ${theme.FONT_SIZE.XL_24}px;
     font-family: ${theme.FONT_FAMILY.BOLD};
-    color: ${isInDiet ? theme.COLORS.GREEN_DARK : theme.COLORS.RED_DARK};
+    color: ${status === "inTheDiet"
+      ? theme.COLORS.GREEN_DARK
+      : theme.COLORS.RED_DARK};
     text-align: center;
     margin-bottom: 16px;
   `}

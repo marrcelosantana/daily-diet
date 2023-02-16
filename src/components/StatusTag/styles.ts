@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components/native";
 
 export type StatusTagStyleProps = {
-  type: "inTheDiet" | "offDiet";
+  type: string;
 };
 
 export const Container = styled.View`

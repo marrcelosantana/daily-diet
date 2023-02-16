@@ -1,5 +1,5 @@
 import { Image } from "react-native";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useRoute } from "@react-navigation/native";
 
 import inTheDietImg from "@assets/woman.png";
 import offDietImg from "@assets/man.png";
@@ -15,27 +15,34 @@ import {
   FeedbackStyleProps,
 } from "./styles";
 
-export function Feedback({ isInDiet = true }: FeedbackStyleProps) {
+type RouteParams = {
+  status: string;
+};
+
+export function Feedback({}: FeedbackStyleProps) {
   const navigation = useNavigation();
+  const route = useRoute();
+
+  const { status } = route.params as RouteParams;
 
   function handleGoBack() {
     navigation.navigate("home");
   }
   return (
     <Container>
-      {isInDiet ? (
-        <Highlight isInDiet={isInDiet}>
-          <Title isInDiet={isInDiet}>Continue assim!</Title>
-          <Subtitle isInDiet={isInDiet}>
+      {status === "inTheDiet" ? (
+        <Highlight status={status}>
+          <Title status={status}>Continue assim!</Title>
+          <Subtitle status={status}>
             Você continua <SubtitleBold>dentro da dieta</SubtitleBold> muito
             bem!
           </Subtitle>
           <Image source={inTheDietImg} />
         </Highlight>
       ) : (
-        <Highlight isInDiet={isInDiet}>
-          <Title isInDiet={isInDiet}>Que pena!</Title>
-          <Subtitle isInDiet={isInDiet}>
+        <Highlight status={status}>
+          <Title status={status}>Que pena!</Title>
+          <Subtitle status={status}>
             Você <SubtitleBold>saiu da dieta</SubtitleBold> dessa vez, mas
             continue se esforçando e não desista!
           </Subtitle>

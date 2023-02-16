@@ -18,8 +18,8 @@ export function Home() {
 
   const navigation = useNavigation();
 
-  function handleOpenCard(id: string) {
-    navigation.navigate("details", { id });
+  function handleOpenCard(meal: Meal, status: string) {
+    navigation.navigate("details", { meal, status });
   }
 
   async function fetchMeals() {
@@ -54,7 +54,7 @@ export function Home() {
           renderItem={({ item }) => (
             <MealCard
               meal={item}
-              onPress={() => handleOpenCard(item.id)}
+              onPress={() => handleOpenCard(item, item.status)}
               key={item.id}
             />
           )}

@@ -3,7 +3,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { Feather } from "@expo/vector-icons";
 
 export type DetailsStyleProps = {
-  type: "inTheDiet" | "offDiet";
+  type: string;
 };
 
 export const Container = styled(SafeAreaView)<DetailsStyleProps>`
