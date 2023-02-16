@@ -13,6 +13,7 @@ import { getAllMeals } from "@storage/meal/getAllMeals";
 import { formatPercentage } from "@utils/formatPercent";
 
 import { Container, Content, Title } from "./styles";
+import { EmptyPercentCard } from "@components/EmptyPercentCard";
 
 export function Home() {
   const [meals, setMeals] = useState<Meal[]>([]);
@@ -42,10 +43,15 @@ export function Home() {
   return (
     <Container>
       <Header />
-      <PercentCard
-        percent={percentInTheDiet}
-        onPress={() => navigation.navigate("statistics")}
-      />
+
+      {percentInTheDiet >= 0 ? (
+        <PercentCard
+          percent={percentInTheDiet}
+          onPress={() => navigation.navigate("statistics")}
+        />
+      ) : (
+        <EmptyPercentCard />
+      )}
 
       <Content>
         <Title>Refeições</Title>

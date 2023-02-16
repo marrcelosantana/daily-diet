@@ -10,6 +10,7 @@ type Props = {
 
 export const Container = styled.Pressable<Props>`
   width: 100%;
+  height: 130px;
   align-items: center;
   justify-content: center;
   padding: 20px 16px;
