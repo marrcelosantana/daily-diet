@@ -1,8 +1,10 @@
+import { useState } from "react";
 import { Alert, Text, TouchableOpacity } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 
 import { StatusTag } from "@components/StatusTag";
 import { Button } from "@components/Button";
+import { DeleteModal } from "@components/DeleteModal";
 
 import { Meal } from "@models/Meal";
 import { formatDate } from "@utils/formatDate";
@@ -36,6 +38,8 @@ export function Details({}: DetailsProps) {
   const route = useRoute();
   const { meal, status } = route.params as RouteParams;
 
+  const [modalVisible, setModalVisible] = useState(false);
+
   function handleEdit(meal: Meal) {
     navigation.navigate("update", { meal });
   }
@@ -43,22 +47,10 @@ export function Details({}: DetailsProps) {
   async function onRemove(id: string) {
     try {
       await removeMeal(id);
+      navigation.navigate("home");
     } catch (error) {
       console.log(error);
     }
-  }
-
-  function handleRemoveMeal(id: string) {
-    Alert.alert("Remover", "Deseja realmente excluir o registro da refeição?", [
-      { text: "Cancelar", style: "cancel" },
-      {
-        text: "Excluir",
-        onPress: () => {
-          onRemove(id);
-          navigation.navigate("home");
-        },
-      },
-    ]);
   }
 
   return (
@@ -99,10 +91,16 @@ export function Details({}: DetailsProps) {
             type="light"
             iconCommunity="trash-can"
             style={{ marginTop: -15 }}
-            onPress={() => handleRemoveMeal(meal.id)}
+            onPress={() => setModalVisible(true)}
           />
         </ButtonsContainer>
       </Content>
+      <DeleteModal
+        modalVisible={modalVisible}
+        setModalVisible={setModalVisible}
+        mealId={meal.id}
+        handleDeleteMeal={onRemove}
+      />
     </Container>
   );
 }
