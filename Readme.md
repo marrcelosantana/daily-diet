@@ -39,6 +39,14 @@ $ expo start
 
 ### Telas da aplicação
 
-|                  Home                  |              Home + List              |               Home + List               |
+|                  Home                  |             Home + Lista              |              Home + Lista               |
 | :------------------------------------: | :-----------------------------------: | :-------------------------------------: |
 | <img src= "./assets/images/Empty.png"> | <img src= "./assets/images/Feed.png"> | <img src= "./assets/images/Feed-2.png"> |
+
+|               Registro                |              Dentro da dieta               |              Fora da Dieta               |
+| :-----------------------------------: | :----------------------------------------: | :--------------------------------------: |
+| <img src= "./assets/images/Register"> | <img src= "./assets/images/InTheDiet.png"> | <img src= "./assets/images/OffDiet.png"> |
+
+|              Estatísticas               |                 Estatísticas                  |            Modal de Deletar            |
+| :-------------------------------------: | :-------------------------------------------: | :------------------------------------: |
+| <img src= "./assets/images/Statistics"> | <img src= "./assets/images/Statistics-2.png"> | <img src= "./assets/images/Modal.png"> |
