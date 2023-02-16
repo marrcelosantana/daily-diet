@@ -11,12 +11,12 @@ import {
 
 type PercentCardProps = PressableProps & {
   type?: PercentCardStyleProps;
-  percent: string;
+  percent: number;
 };
 
 export function PercentCard({
-  type = "inTheDiet",
   percent,
+  type = percent >= 50 ? "inTheDiet" : "offDiet",
   ...rest
 }: PercentCardProps) {
   return (
@@ -24,7 +24,7 @@ export function PercentCard({
       <Header>
         <ArrowUpRightIcon type={type} name="arrow-up-right" />
       </Header>
-      <Title>{percent}</Title>
+      <Title>{percent}%</Title>
       <SubTitle>das refeições dentro da dieta</SubTitle>
     </Container>
   );
