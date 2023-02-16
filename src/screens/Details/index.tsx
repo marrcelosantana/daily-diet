@@ -3,8 +3,10 @@ import { useNavigation, useRoute } from "@react-navigation/native";
 
 import { StatusTag } from "@components/StatusTag";
 import { Button } from "@components/Button";
+
 import { Meal } from "@models/Meal";
 import { formatDate } from "@utils/formatDate";
+import { removeMeal } from "@storage/meal/removeMeal";
 
 import {
   ArrowLeftIcon,
@@ -21,7 +23,6 @@ import {
   InfoSubtitle,
   ButtonsContainer,
 } from "./styles";
-import { removeMeal } from "@storage/meal/removeMeal";
 
 type RouteParams = {
   meal: Meal;
