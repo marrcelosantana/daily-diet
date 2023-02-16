@@ -4,7 +4,7 @@ export function EmptyPercentCard() {
   return (
     <Container>
       <Icon name="alert-octagon" />
-      <Text>Adicione uma refeição para obter os dados.</Text>
+      <Text>Registre uma refeição para obter os dados.</Text>
     </Container>
   );
 }

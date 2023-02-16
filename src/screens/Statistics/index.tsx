@@ -1,4 +1,7 @@
-import { useNavigation } from "@react-navigation/native";
+import { Meal } from "@models/Meal";
+import { useNavigation, useRoute } from "@react-navigation/native";
+import { calcSequence } from "@utils/calcSequence";
+import { formatPercentage } from "@utils/formatPercent";
 
 import {
   ArrowLeftIcon,
@@ -18,6 +21,10 @@ import {
   InTheDietCard,
 } from "./styles";
 
+type RouteParams = {
+  meals: Meal[];
+};
+
 type StatisticsProps = {
   type: StatisticsStyleProps;
 };
@@ -25,18 +32,27 @@ type StatisticsProps = {
 export function Statistics({ type = "inTheDiet" }: StatisticsProps) {
   const navigation = useNavigation();
 
-  function handleGoBack() {
-    navigation.navigate("home");
-  }
+  const route = useRoute();
+  const { meals } = route.params as RouteParams;
+
+  const mealsInTheDiet = meals.filter(
+    (meal) => meal.status === "inTheDiet"
+  ).length;
+  const mealsOffDiet = meals.filter((meal) => meal.status === "offDiet").length;
+  const totalMeals = meals.length;
+
+  const percentInTheDiet = formatPercentage(mealsInTheDiet, totalMeals);
+
+  const bestSequence = calcSequence(meals);
 
   return (
     <Container type={type}>
-      <GoBackButton onPress={handleGoBack}>
+      <GoBackButton onPress={() => navigation.navigate("home")}>
         <ArrowLeftIcon type={type} name="arrow-left" />
       </GoBackButton>
 
       <Header>
-        <HeaderTitle>90,86%</HeaderTitle>
+        <HeaderTitle>{percentInTheDiet}%</HeaderTitle>
         <HeaderSubtitle>das refeições dentro da dieta</HeaderSubtitle>
       </Header>
 
@@ -44,25 +60,25 @@ export function Statistics({ type = "inTheDiet" }: StatisticsProps) {
         <ContentTitle>Estatísticas gerais</ContentTitle>
 
         <GeneralStatisticsCard>
-          <CardTitle>22</CardTitle>
+          <CardTitle>{bestSequence}</CardTitle>
           <CardSubtitle>
             melhor sequência de pratos dentro da dieta
           </CardSubtitle>
         </GeneralStatisticsCard>
 
         <GeneralStatisticsCard>
-          <CardTitle>109</CardTitle>
+          <CardTitle>{totalMeals}</CardTitle>
           <CardSubtitle>refeições registradas</CardSubtitle>
         </GeneralStatisticsCard>
 
         <FooterCardsContainer>
           <InTheDietCard>
-            <CardTitle>99</CardTitle>
+            <CardTitle>{mealsInTheDiet}</CardTitle>
             <CardSubtitle>refeições dentro da dieta</CardSubtitle>
           </InTheDietCard>
 
           <OffDietCard>
-            <CardTitle>10</CardTitle>
+            <CardTitle>{mealsOffDiet}</CardTitle>
             <CardSubtitle>refeições fora da dieta</CardSubtitle>
           </OffDietCard>
         </FooterCardsContainer>

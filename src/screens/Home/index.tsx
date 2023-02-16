@@ -47,7 +47,7 @@ export function Home() {
       {percentInTheDiet >= 0 ? (
         <PercentCard
           percent={percentInTheDiet}
-          onPress={() => navigation.navigate("statistics")}
+          onPress={() => navigation.navigate("statistics", { meals })}
         />
       ) : (
         <EmptyPercentCard />
