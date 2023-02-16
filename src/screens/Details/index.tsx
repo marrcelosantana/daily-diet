@@ -1,8 +1,10 @@
+import { useEffect, useState } from "react";
 import { Alert, Text, TouchableOpacity } from "react-native";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useRoute } from "@react-navigation/native";
 
 import { StatusTag } from "@components/StatusTag";
 import { Button } from "@components/Button";
+import { Meal } from "@models/Meal";
 
 import {
   ArrowLeftIcon,
@@ -19,18 +21,29 @@ import {
   InfoSubtitle,
   ButtonsContainer,
 } from "./styles";
+import { getOneMeal } from "@storage/meal/getOneMeal";
+
+type RouteParams = {
+  mealId: string;
+};
 
 type DetailsProps = DetailsStyleProps & {};
 
 export function Details({ type = "inTheDiet" }: DetailsProps) {
+  const [meal, setMeal] = useState<Meal>();
+
   const navigation = useNavigation();
+  const route = useRoute();
+  const { mealId } = route.params as RouteParams;
 
-  function handleGoBack() {
-    navigation.navigate("home");
-  }
+  // async function getData() {
+  //   const data = await getOneMeal(mealId);
+  //   setMeal(data);
+  //   console.log(data);
+  // }
 
-  function handleEdit() {
-    navigation.navigate("update");
+  function handleEdit(id: string) {
+    navigation.navigate("update", { id });
   }
 
   function handleRemoveMeal() {
@@ -40,10 +53,14 @@ export function Details({ type = "inTheDiet" }: DetailsProps) {
     ]);
   }
 
+  useEffect(() => {
+    console.log(mealId);
+  }, []);
+
   return (
     <Container type={type}>
       <Header>
-        <TouchableOpacity onPress={handleGoBack}>
+        <TouchableOpacity onPress={() => navigation.navigate("home")}>
           <ArrowLeftIcon name="arrow-left" />
         </TouchableOpacity>
         <HeaderTitle>Refeição</HeaderTitle>
@@ -70,7 +87,6 @@ export function Details({ type = "inTheDiet" }: DetailsProps) {
             title="Editar refeição"
             type="dark"
             iconCommunity="lead-pencil"
-            onPress={handleEdit}
           />
 
           <Button

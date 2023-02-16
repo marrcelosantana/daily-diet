@@ -18,8 +18,8 @@ export function Home() {
 
   const navigation = useNavigation();
 
-  function handleOpenCard() {
-    navigation.navigate("details");
+  function handleOpenCard(id: string) {
+    navigation.navigate("details", { id });
   }
 
   async function fetchMeals() {
@@ -52,7 +52,11 @@ export function Home() {
           data={meals}
           keyExtractor={(item) => item.id}
           renderItem={({ item }) => (
-            <MealCard meal={item} onPress={handleOpenCard} key={item.id} />
+            <MealCard
+              meal={item}
+              onPress={() => handleOpenCard(item.id)}
+              key={item.id}
+            />
           )}
           contentContainerStyle={meals.length === 0 && { flex: 1 }}
           ListEmptyComponent={() => <EmptyListContent />}

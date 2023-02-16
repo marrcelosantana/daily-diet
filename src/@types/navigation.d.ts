@@ -8,8 +8,8 @@ export declare global {
       statistics: { meals: Meal[] };
       register: undefined;
       feedback: { type: Diet };
-      details: { meal: Meal };
-      update: { meal: Meal };
+      details: { id: string };
+      update: { id: string };
     }
   }
 }
