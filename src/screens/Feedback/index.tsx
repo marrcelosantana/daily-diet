@@ -34,7 +34,7 @@ export function Feedback({}: FeedbackStyleProps) {
         <Highlight status={status}>
           <Title status={status}>Continue assim!</Title>
           <Subtitle status={status}>
-            Você continua <SubtitleBold>dentro da dieta</SubtitleBold> muito
+            Você continua <SubtitleBold>dentro da dieta</SubtitleBold>, muito
             bem!
           </Subtitle>
           <Image source={inTheDietImg} />
