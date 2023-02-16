@@ -7,13 +7,13 @@ import { Button } from "@components/Button";
 import { Header } from "@components/Header";
 import { PercentCard } from "@components/PercentCard";
 import { MealCard } from "@components/MealCard";
+import { EmptyPercentCard } from "@components/EmptyPercentCard";
 
 import { Meal } from "@models/Meal";
 import { getAllMeals } from "@storage/meal/getAllMeals";
 import { formatPercentage } from "@utils/formatPercent";
 
 import { Container, Content, Title } from "./styles";
-import { EmptyPercentCard } from "@components/EmptyPercentCard";
 
 export function Home() {
   const [meals, setMeals] = useState<Meal[]>([]);
@@ -33,7 +33,7 @@ export function Home() {
   }
 
   function findDietStatus() {
-    if (percentInTheDiet < 50) {
+    if (percentInTheDiet < 0.5) {
       setDietStatus("offDiet");
     } else {
       setDietStatus("inTheDiet");
