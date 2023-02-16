@@ -17,6 +17,7 @@ import { EmptyPercentCard } from "@components/EmptyPercentCard";
 
 export function Home() {
   const [meals, setMeals] = useState<Meal[]>([]);
+  const [dietStatus, setDietStatus] = useState("");
 
   const mealsInTheDiet = meals.filter(
     (meal) => meal.status === "inTheDiet"
@@ -31,6 +32,14 @@ export function Home() {
     navigation.navigate("details", { meal, status });
   }
 
+  function findDietStatus() {
+    if (percentInTheDiet < 50) {
+      setDietStatus("offDiet");
+    } else {
+      setDietStatus("inTheDiet");
+    }
+  }
+
   async function fetchMeals() {
     const data = await getAllMeals();
     setMeals(data);
@@ -38,7 +47,8 @@ export function Home() {
 
   useEffect(() => {
     fetchMeals();
-  }, [meals]);
+    findDietStatus();
+  }, [meals, dietStatus]);
 
   return (
     <Container>
@@ -47,7 +57,9 @@ export function Home() {
       {percentInTheDiet >= 0 ? (
         <PercentCard
           percent={percentInTheDiet}
-          onPress={() => navigation.navigate("statistics", { meals })}
+          onPress={() =>
+            navigation.navigate("statistics", { meals, dietStatus })
+          }
         />
       ) : (
         <EmptyPercentCard />

@@ -23,17 +23,18 @@ import {
 
 type RouteParams = {
   meals: Meal[];
+  dietStatus: string;
 };
 
 type StatisticsProps = {
   type: StatisticsStyleProps;
 };
 
-export function Statistics({ type = "inTheDiet" }: StatisticsProps) {
+export function Statistics({}: StatisticsProps) {
   const navigation = useNavigation();
 
   const route = useRoute();
-  const { meals } = route.params as RouteParams;
+  const { meals, dietStatus } = route.params as RouteParams;
 
   const mealsInTheDiet = meals.filter(
     (meal) => meal.status === "inTheDiet"
@@ -46,9 +47,9 @@ export function Statistics({ type = "inTheDiet" }: StatisticsProps) {
   const bestSequence = calcSequence(meals);
 
   return (
-    <Container type={type}>
+    <Container type={dietStatus}>
       <GoBackButton onPress={() => navigation.navigate("home")}>
-        <ArrowLeftIcon type={type} name="arrow-left" />
+        <ArrowLeftIcon type={dietStatus} name="arrow-left" />
       </GoBackButton>
 
       <Header>
