@@ -3,7 +3,7 @@
 ## Capa 📸
 
 <div align="center" >
-  <img src="./assets/images/Capa.png" height="325" widht="100%">
+  <img src="./assets/images/Capa.png" height="325" widht="600">
 </div>
 
 ## Sobre o Projeto
