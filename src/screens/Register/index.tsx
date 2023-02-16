@@ -111,6 +111,8 @@ export function Register() {
           onChangeText={(name) => setName(name)}
         />
         <Input
+          multiline={true}
+          numberOfLines={5}
           title="Descrição"
           maxLength={220}
           style={{ height: 120 }}

@@ -55,7 +55,7 @@ export function Details({ type = "inTheDiet" }: DetailsProps) {
   }
 
   useEffect(() => {
-    console.log(mealId);
+    console.log(meal);
   }, []);
 
   return (
