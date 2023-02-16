@@ -33,7 +33,7 @@ export function Home() {
   }
 
   function findDietStatus() {
-    if (percentInTheDiet < 0.5) {
+    if (percentInTheDiet < 50) {
       setDietStatus("offDiet");
     } else {
       setDietStatus("inTheDiet");
