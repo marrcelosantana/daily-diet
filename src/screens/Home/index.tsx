@@ -50,7 +50,7 @@ export function Home() {
 
         <FlatList
           data={meals}
-          keyExtractor={(item) => item.id}
+          keyExtractor={(item, index) => item.id + index}
           renderItem={({ item }) => (
             <MealCard
               meal={item}

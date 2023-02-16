@@ -1,8 +1,8 @@
+import { DietStatus } from "./../../models/DietStatus";
 import styled, { css } from "styled-components/native";
-import { Diet } from "@models/MealsByDate";
 
 type RadioStyleProps = {
-  type: Diet;
+  type: DietStatus;
   isSelected?: boolean;
   hasMarginLeft?: boolean;
 };
@@ -62,6 +62,6 @@ export const OptionIcon = styled.View<RadioStyleProps>`
 export const OptionText = styled.Text`
   ${({ theme }) => css`
     font-family: ${theme.FONT_FAMILY.BOLD};
-    font-size: ${theme.FONT_SIZE.SM_14};
+    font-size: ${theme.FONT_SIZE.SM_14}px;
   `}
 `;

@@ -6,6 +6,8 @@ import { StatusTag } from "@components/StatusTag";
 import { Button } from "@components/Button";
 import { Meal } from "@models/Meal";
 
+import { getOneMeal } from "@storage/meal/getOneMeal";
+
 import {
   ArrowLeftIcon,
   Container,
@@ -21,7 +23,6 @@ import {
   InfoSubtitle,
   ButtonsContainer,
 } from "./styles";
-import { getOneMeal } from "@storage/meal/getOneMeal";
 
 type RouteParams = {
   mealId: string;
@@ -36,11 +37,11 @@ export function Details({ type = "inTheDiet" }: DetailsProps) {
   const route = useRoute();
   const { mealId } = route.params as RouteParams;
 
-  // async function getData() {
-  //   const data = await getOneMeal(mealId);
-  //   setMeal(data);
-  //   console.log(data);
-  // }
+  async function getData() {
+    const data = await getOneMeal(mealId);
+    setMeal(data);
+    console.log(data);
+  }
 
   function handleEdit(id: string) {
     navigation.navigate("update", { id });
