@@ -50,3 +50,7 @@ $ expo start
 |                Estatísticas                 |                 Estatísticas                  |            Modal de Deletar            |
 | :-----------------------------------------: | :-------------------------------------------: | :------------------------------------: |
 | <img src= "./assets/images/Statistics.png"> | <img src= "./assets/images/Statistics-2.png"> | <img src= "./assets/images/Modal.png"> |
+
+|                 Detalhes                 |                  Detalhes                  |
+| :--------------------------------------: | :----------------------------------------: |
+| <img src= "./assets/images/Details.png"> | <img src= "./assets/images/Details-2.png"> |
