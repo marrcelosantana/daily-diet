@@ -21,6 +21,7 @@ import {
   InfoSubtitle,
   ButtonsContainer,
 } from "./styles";
+import { removeMeal } from "@storage/meal/removeMeal";
 
 type RouteParams = {
   meal: Meal;
@@ -38,10 +39,24 @@ export function Details({}: DetailsProps) {
     navigation.navigate("update", { meal });
   }
 
-  function handleRemoveMeal() {
+  async function onRemove(id: string) {
+    try {
+      await removeMeal(id);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  function handleRemoveMeal(id: string) {
     Alert.alert("Remover", "Deseja realmente excluir o registro da refeição?", [
       { text: "Cancelar", style: "cancel" },
-      { text: "Excluir", onPress: () => {} },
+      {
+        text: "Excluir",
+        onPress: () => {
+          onRemove(id);
+          navigation.navigate("home");
+        },
+      },
     ]);
   }
 
@@ -83,7 +98,7 @@ export function Details({}: DetailsProps) {
             type="light"
             iconCommunity="trash-can"
             style={{ marginTop: -15 }}
-            onPress={handleRemoveMeal}
+            onPress={() => handleRemoveMeal(meal.id)}
           />
         </ButtonsContainer>
       </Content>
