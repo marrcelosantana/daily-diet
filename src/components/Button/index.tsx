@@ -1,4 +1,4 @@
-import { TouchableOpacityProps } from "react-native";
+import { PressableProps } from "react-native";
 import { MaterialIcons, MaterialCommunityIcons } from "@expo/vector-icons";
 import {
   Container,
@@ -8,7 +8,7 @@ import {
   IconCommunity,
 } from "./styles";
 
-type ButtonProps = TouchableOpacityProps &
+type ButtonProps = PressableProps &
   ButtonTypeStyleProps & {
     title: string;
     type: string;

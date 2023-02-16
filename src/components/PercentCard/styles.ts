@@ -2,13 +2,13 @@ import styled, { css } from "styled-components/native";
 
 import { Feather } from "@expo/vector-icons";
 
-export type PercentCardStyleProps = "inTheDiet" | "offDiet";
+export type PercentCardStyleProps = string;
 
 type Props = {
   type: PercentCardStyleProps;
 };
 
-export const Container = styled.TouchableOpacity<Props>`
+export const Container = styled.Pressable<Props>`
   width: 100%;
   align-items: center;
   justify-content: center;

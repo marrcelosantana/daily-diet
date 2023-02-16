@@ -1,6 +1,6 @@
+import { PressableProps } from "react-native";
 import { Meal } from "@models/Meal";
 import { formatDate } from "@utils/formatDate";
-import { TouchableProps } from "react-native-svg";
 import {
   Container,
   Divider,
@@ -11,8 +11,8 @@ import {
   Title,
 } from "./styles";
 
-type MealCardProps = TouchableProps &
-  MealStatusProps & {
+type MealCardProps = MealStatusProps &
+  PressableProps & {
     meal: Meal;
   };
 

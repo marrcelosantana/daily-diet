@@ -1,4 +1,5 @@
-import { TouchableProps } from "react-native-svg";
+import { PressableProps } from "react-native";
+
 import {
   ArrowUpRightIcon,
   Container,
@@ -8,7 +9,7 @@ import {
   Title,
 } from "./styles";
 
-type PercentCardProps = TouchableProps & {
+type PercentCardProps = PressableProps & {
   type?: PercentCardStyleProps;
   percent: string;
 };

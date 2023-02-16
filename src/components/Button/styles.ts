@@ -7,7 +7,7 @@ export type ButtonTypeStyleProps = {
 
 type Props = ButtonTypeStyleProps;
 
-export const Container = styled.TouchableOpacity<Props>`
+export const Container = styled.Pressable<Props>`
   width: 100%;
   display: flex;
   align-items: center;

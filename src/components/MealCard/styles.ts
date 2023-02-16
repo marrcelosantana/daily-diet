@@ -4,7 +4,7 @@ export type MealStatusProps = {
   status?: string;
 };
 
-export const Container = styled.TouchableOpacity`
+export const Container = styled.Pressable`
   width: 100%;
   height: 49px;
   border: 1px solid ${({ theme }) => theme.COLORS.GRAY_500};
