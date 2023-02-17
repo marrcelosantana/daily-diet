@@ -31,7 +31,7 @@ $ cd daily-diet
 # Instale as dependências
 $ npm install
 # ou
-$ npm install
+$ yarn
 # Execute a aplicação em modo de desenvolvimento
 $ expo start
 
